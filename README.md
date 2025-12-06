@@ -192,13 +192,7 @@ MIT License - feel free to use this in your own projects!
 - [ ] Audio manager with spatial sound
 - [ ] Save/load game state
 - [ ] Mobile touch controls
-
-## 💡 Example Games
-
-Check the `examples/` folder for complete game implementations:
-- Platformer
-- Space Shooter
-- Puzzle Game
+- [ ] Example games (platformer, puzzle game)
 
 ---
 

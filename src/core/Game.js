@@ -36,6 +36,13 @@ export class Game {
       mouse: { x: 0, y: 0, buttons: {} }
     };
     
+    // Store event listener references for cleanup
+    this._keyDownHandler = null;
+    this._keyUpHandler = null;
+    this._mouseMoveHandler = null;
+    this._mouseDownHandler = null;
+    this._mouseUpHandler = null;
+    
     this._setupInputHandlers();
   }
   
@@ -212,6 +219,22 @@ export class Game {
    */
   stop() {
     this.isRunning = false;
+    this._cleanupInputHandlers();
+  }
+  
+  /**
+   * Cleanup input event handlers
+   */
+  _cleanupInputHandlers() {
+    if (this._keyDownHandler) {
+      window.removeEventListener('keydown', this._keyDownHandler);
+      window.removeEventListener('keyup', this._keyUpHandler);
+    }
+    if (this._mouseMoveHandler) {
+      this.canvas.removeEventListener('mousemove', this._mouseMoveHandler);
+      this.canvas.removeEventListener('mousedown', this._mouseDownHandler);
+      this.canvas.removeEventListener('mouseup', this._mouseUpHandler);
+    }
   }
   
   /**
@@ -219,28 +242,32 @@ export class Game {
    */
   _setupInputHandlers() {
     // Keyboard
-    window.addEventListener('keydown', (e) => {
+    this._keyDownHandler = (e) => {
       this.input.keys[e.key] = true;
-    });
-    
-    window.addEventListener('keyup', (e) => {
+    };
+    this._keyUpHandler = (e) => {
       this.input.keys[e.key] = false;
-    });
+    };
+    
+    window.addEventListener('keydown', this._keyDownHandler);
+    window.addEventListener('keyup', this._keyUpHandler);
     
     // Mouse
-    this.canvas.addEventListener('mousemove', (e) => {
+    this._mouseMoveHandler = (e) => {
       const rect = this.canvas.getBoundingClientRect();
       this.input.mouse.x = e.clientX - rect.left;
       this.input.mouse.y = e.clientY - rect.top;
-    });
-    
-    this.canvas.addEventListener('mousedown', (e) => {
+    };
+    this._mouseDownHandler = (e) => {
       this.input.mouse.buttons[e.button] = true;
-    });
-    
-    this.canvas.addEventListener('mouseup', (e) => {
+    };
+    this._mouseUpHandler = (e) => {
       this.input.mouse.buttons[e.button] = false;
-    });
+    };
+    
+    this.canvas.addEventListener('mousemove', this._mouseMoveHandler);
+    this.canvas.addEventListener('mousedown', this._mouseDownHandler);
+    this.canvas.addEventListener('mouseup', this._mouseUpHandler);
   }
   
   /**
