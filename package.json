@@ -20,7 +20,7 @@
     "game-engine",
     "javascript"
   ],
-  "author": "",
+  "author": "Your Name <your.email@example.com>",
   "license": "MIT",
   "devDependencies": {
     "vite": "^5.0.0",
