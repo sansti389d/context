@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Shooter - Context Game Engine</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+    
+    #gameContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    #gameCanvas {
+      border: 3px solid #fff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      background: #000;
+    }
+    
+    #ui {
+      display: flex;
+      gap: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .ui-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+    
+    #instructions {
+      text-align: center;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <h1>🚀 Space Shooter</h1>
+    <div id="ui">
+      <div class="ui-item">Score: <span id="score">0</span></div>
+      <div class="ui-item">Health: <span id="health">100</span></div>
+      <div class="ui-item">Wave: <span id="wave">1</span></div>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="instructions">
+      <strong>Controls:</strong> Arrow Keys to move, Space to shoot<br>
+      Destroy enemies to score points! Avoid enemy ships and projectiles.
+    </div>
+  </div>
+  
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

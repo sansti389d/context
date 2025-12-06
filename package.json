@@ -1,0 +1,32 @@
+{
+  "name": "context-game",
+  "version": "1.0.0",
+  "description": "A modern HTML5 game engine with entity-component system",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "keywords": [
+    "game",
+    "html5",
+    "canvas",
+    "game-engine",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "jest": "^29.7.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1"
+  },
+  "dependencies": {}
+}
