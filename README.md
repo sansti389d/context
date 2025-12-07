@@ -49,6 +49,12 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
 ```
 
 ### Basic Usage
@@ -140,13 +146,37 @@ The engine uses a fixed timestep game loop that:
 
 ## 🧪 Testing
 
+The project includes a comprehensive test suite with 160+ test cases covering all functionality.
+
+### Test Suite
+
+- **GameMechanics.test.js** - Core game loop, entities, scenes (25+ tests)
+- **PlayerInteraction.test.js** - Input and collision handling (20+ tests)
+- **WinLoseConditions.test.js** - Game state management (20+ tests)
+- **GameControls.test.js** - Keyboard and mouse controls (25+ tests)
+- **Performance.test.js** - Frame rate and optimization (25+ tests)
+- **AssetManagement.test.js** - Asset loading and caching (25+ tests)
+- **Integration.test.js** - End-to-end scenarios (20+ tests)
+- **Entity.test.js** - Entity functionality tests
+
+### Running Tests
+
 ```bash
-# Run tests
+# Run all tests
 npm test
 
-# Watch mode
-npm test:watch
+# Run specific test file
+npm test GameMechanics.test.js
+
+# Watch mode for development
+npm run test:watch
 ```
+
+### Test Coverage
+
+See [docs/TEST_COVERAGE.md](docs/TEST_COVERAGE.md) for detailed test documentation and coverage information.
+
+**Requirements Verified:** ✓ All core and technical requirements tested and passing
 
 ## 🛠️ Development
 
